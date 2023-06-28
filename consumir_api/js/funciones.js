@@ -20,6 +20,7 @@ const listarDatos = async() => {
             `<td>${usuario.nota2}</td>`+
             `<td>${usuario.nota3}</td>`+
             `<td>${usuario.promedio}</td>`+
+            `<td>${usuario.observacion}</td>`+
             `<td><a class="waves-effect waves-light btn modal-trigger" href="#modal1" onclick='editar(${JSON.stringify(usuario)})' >Editar</a> 
             <a class="waves-effect waves-light btn modal-danger red"  onclick='eliminar(${JSON.stringify(usuario)})'>Eliminar</a></td>`+
             `</tr>`
@@ -36,6 +37,7 @@ const registrar = async () => {
     let _nota1 = document.getElementById('nota1').value;
     let _nota2 = document.getElementById('nota2').value; 
     let _nota3 = document.getElementById('nota3').value;
+    let _observacion = document.getElementById('observacion').value;
     
 
       let usuario = {
@@ -43,7 +45,8 @@ const registrar = async () => {
         nombre: _nombre,
         nota1: _nota1,
         nota2: _nota2,
-        nota3: _nota3
+        nota3: _nota3,
+        observacion: _observacion,
         
 
       };
@@ -76,6 +79,7 @@ const editar= (usuario)=>{
     document.getElementById('nota1').value = ''
     document.getElementById('nota2').value = ''
     document.getElementById('nota3').value = ''
+    document.getElementById('observacion').value = ''
    
 
 
@@ -84,6 +88,7 @@ const editar= (usuario)=>{
     document.getElementById('nota1').value = usuario.nota1
     document.getElementById('nota2').value = usuario.nota2
     document.getElementById('nota3').value = usuario.nota3
+    document.getElementById('observacion').value = usuario.observacion
     
 
 }
@@ -114,15 +119,17 @@ const actualizar = async()=>{
     let _nota1 = document.getElementById('nota1').value
     let _nota2 = document.getElementById('nota2').value
     let _nota3 = document.getElementById('nota3').value
-    console.log(_documento, _nombre, _nota1, _nota2, _nota3);
+    let _observacion = document.getElementById('observacion').value
+    console.log(_documento, _nombre, _nota1, _nota2, _nota3, _observacion);
 
-    if(_documento.trim() !== '' && _nombre.trim() !== '' && _nota1.trim() !== '' && _nota2.trim() !== '' && _nota3.trim() !== '' ){
+    if(_documento.trim() !== '' && _nombre.trim() !== '' && _nota1.trim() !== '' && _nota2.trim() !== '' && _nota3.trim() !== '' && _observacion.trim() !== '' ){
         let usuario = {
             documento: _documento,
             nombre: _nombre,
             nota1: _nota1,
             nota2: _nota2,
-            nota3: _nota3
+            nota3: _nota3,
+            observacion: _observacion,
             
         }
 

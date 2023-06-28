@@ -55,7 +55,7 @@ const usuarioPost = async(req,res = response) => {
 
 const usuarioPut = async (req, res = response) => {
     // Captura atributos o parámetros
-    const { documento, nombre, nota1, nota2, nota3 } = req.body;
+    const { documento, nombre, nota1, nota2, nota3, observacion } = req.body;
     let mensaje = '';
   
     try {
@@ -67,7 +67,7 @@ const usuarioPut = async (req, res = response) => {
       } else {
         const usuario = await Usuario.findOneAndUpdate(
           { documento: documento },
-          { nombre, nota1, nota2, nota3 },
+          { nombre, nota1, nota2, nota3, observacion },
           { new: true }
         );
         mensaje = 'La modificación se efectuó correctamente.';
